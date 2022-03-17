@@ -1,24 +1,4 @@
 /**
- *
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- *
- * Dependencies: None
- *
- * JS Version: ES2015/ES6
- *
- * JS Standard: ESlint
- *
- */
-
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
- */
-
-/**
  * Define Global Variables
  *
  */
@@ -60,46 +40,8 @@ function setActiveStates(list, target) {
  * Begin Main Functions
  *
  */
-
 // build the nav
 sections.forEach(buildMenu);
-
-// scrolling Functionality
-function scrollToId(scrollValue) {
-  //   scroll before 100 of the viewport
-  window.scrollTo({
-    behavior: "smooth",
-    top: scrollValue - 70,
-  });
-}
-
-function hideNavBarWhenIdle() {
-  const header = document.querySelector(".page__header");
-
-  header.style.transform = `translateY(0)`;
-
-  if (
-    window.scrollY >
-    idSelector("section2").getBoundingClientRect().top
-  ) {
-    clearTimeout(isScrolling);
-
-    isScrolling = setTimeout(() => {
-      header.style.transform = `translateY(-70px)`;
-    }, 6000);
-  } else {
-    header.style.transform = `translateY(0)`;
-  }
-
-  /* document.querySelector(
-    ".page__header"
-  ).style.transform = `translateY(0)`; */
-}
-/**
- * End Main Functions
- * Begin Events
- *
- */
 
 // Build menu
 function buildMenu(section) {
@@ -118,8 +60,64 @@ function buildMenu(section) {
   // add the LIs to Virtual Fragment
   fragment.appendChild(itemNav);
 }
+
 // insert the fragment into the navBar --only ONCE!  ==> 1 reflow, 1 repaint
 navBar.appendChild(fragment);
+
+// scrolling Functionality
+function scrollToId(scrollValue) {
+  //   scroll before 100 of the viewport
+  window.scrollTo({
+    behavior: "smooth",
+    top: scrollValue - 70,
+  });
+}
+
+function hideNavBarWhenIdle() {
+  const header = document.querySelector(".page__header");
+
+  header.classList.remove("idle");
+
+  if (
+    window.scrollY >
+    idSelector("section2").getBoundingClientRect().top
+  ) {
+    clearTimeout(isScrolling);
+
+    isScrolling = setTimeout(() => {
+      header.classList.add("idle");
+    }, 6000);
+  } else {
+    header.classList.remove("idle");
+  }
+}
+
+function showTopButton() {
+  if (
+    window.scrollY >
+    idSelector("section2").getBoundingClientRect().top
+  )
+    idSelector("top-btn").classList.add("show");
+  else idSelector("top-btn").classList.remove("show");
+}
+
+function setActiveStateNavItems(sectionId) {
+  console.log(sectionId);
+  const links = groupSelector("#navbar__list .menu__link");
+
+  links.forEach((link) => {
+    if (sectionId === link.dataset.name) {
+      console.log(link);
+      setActiveStates(links, link);
+    }
+  });
+}
+
+/**
+ * End Main Functions
+ * Begin Events
+ *
+ */
 
 // Click link to Scroll to section
 navBar.addEventListener("click", (e) => {
@@ -142,6 +140,10 @@ document.addEventListener("scroll", () => {
 
     // check if the section in the viewport!
     if (topOffset < 200 && topOffset > 100) {
+      // active state for navBar Links
+      setActiveStateNavItems(section.id);
+
+      // active state for sections
       setActiveStates(sections, section);
     }
   });
@@ -153,25 +155,11 @@ document.addEventListener("scroll", () => {
   showTopButton();
 });
 
-function showTopButton() {
-  if (
-    window.scrollY >
-    idSelector("section2").getBoundingClientRect().top
-  )
-    idSelector("top-btn").style.transform = `scale(1)`;
-  else idSelector("top-btn").style.transform = `scale(0)`;
-}
-
-// General Functionalities
-
 // scroll top Button
 idSelector("top-btn").onclick = () => {
   // Scroll to top
   window.scrollTo(0, 0);
 };
-
-// date CopyRight
-idSelector("date").textContent = new Date().getFullYear();
 
 // collapsible sections
 document
@@ -184,3 +172,12 @@ document
       }
     });
   });
+
+/**
+ * End Events
+ * Begin General Functionalities
+ *
+ */
+
+// date CopyRight
+idSelector("date").textContent = new Date().getFullYear();
