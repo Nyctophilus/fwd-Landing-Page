@@ -1,0 +1,189 @@
+<!DOCTYPE >
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Manipulating the DOM</title>
+
+    <!-- Font Awesome Icons lib -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Load Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load Styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu achors to sections -->
+    <header class="page__header">
+      <nav class="navbar__menu">
+        <!-- Navigation starts as empty UL that will be populated with JS -->
+        <ul id="navbar__list"></ul>
+      </nav>
+    </header>
+    <main>
+      <header class="main__hero">
+        <h1>Landing Page</h1>
+      </header>
+      <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to active class by default -->
+      <section
+        id="section1"
+        data-nav="Shy People"
+        class="active"
+      >
+        <div class="landing__container">
+			<h2>Shy people are the best</h2>
+			<div class="text-content">
+				<p>
+					Shyness is a feeling of awkwardness or discomfort in the presence of others. Most people who are shy learn to adapt to their surroundings and function in a world that is dominated by more outgoing and extroverted types.
+
+					At the same time, it can be easy to get down on yourself if you are shy; it might seem like everyone else is doing better socially than you. At times like these, it is helpful to consider some of the benefits or advantages of being shy.
+					
+					These might not be things that immediately come to mind, but they are true of many shy people. This list of 10 good things about being shy might also be helpful if you are overcoming SAD and still struggling with shy tendencies.
+				</p>
+				<br>
+				<strong>Your Modesty Is Attractive</strong>
+				<p>
+					Many shy people are modest; you are the last one to announce your accomplishments or let the world know what is amazing about you. You probably shrink from compliments or downplay your positive attributes. <br><q>Although too much modesty can eat away at self-esteem, a healthy dose is considered an attractive trait by many.</q>
+				</p>
+			</div>
+		  </div>
+
+      </section>
+      <section id="section2" data-nav="Say NO">
+        <div class="landing__container">
+				<h2>How to Say No</h2>
+
+				<div class="text-content">
+					<p>
+						Many of us hesitate to say no to others. With
+						mindful tips like these, saying no is an
+						emotionally intelligent skill anyone can master
+						— really!
+					</p>
+	
+					<p>
+						It’s just two letters, and yet saying no can
+						feel really hard — even complicated. For many of
+						us, saying no doesn’t just feel awkward. It
+						feels wrong. So, whenever anyone asks you to do
+						almost anything, you might blurt out, “Yes!
+						Sure! Of course! Happy to!” But in reality, you
+						may feel the opposite. Maybe you’d rather be
+						doing about a thousand other things. Or maybe
+						you’re OK with saying yes, but it’s not the best
+						thing for your daily bandwidth or mental health.
+						Here’s the good news: Saying no is a skill you
+						can sharpen. The more you say no, the more
+						natural it’ll feel. Here are several ways to
+						build the skill of saying no in different
+						situations — even if it feels like you’re doing
+						it from the ground up.
+					</p>
+				</div>
+
+        </div>
+      </section>
+      <section id="section3" data-nav="Anger">
+        <div class="landing__container">
+          <h2>Anger management</h2>
+			<div class="text-content">
+			<p>
+            Do you fume when someone cuts you off in
+            traffic? Does your blood pressure rocket when
+            your child refuses to cooperate? Anger is a
+            normal and even healthy emotion — but it's
+            important to deal with it in a positive way.
+            Uncontrolled anger can take a toll on both your
+            health and your relationships. Ready to get your
+            anger under control? Start by considering these
+            10 anger management tips.
+          </p>
+
+          <p>
+            Think before you speak In, the heat of the
+            moment, it's easy to say something you'll later
+            regret. Take a few moments to collect your
+            thoughts before saying anything — and allow
+            others involved in the situation to do the same.
+            <br />
+            Once you're calm, express your anger As soon as
+            you're thinking clearly, express your
+            frustration in an assertive but
+            nonconfrontational way. State your concerns and
+            needs clearly and directly, without hurting
+            others or trying to control them.
+          </p>
+			</div>
+        </div>
+      </section>
+      <section id="section4" data-nav="DIY">
+        <div class="landing__container">
+			<h2>DIY</h2>
+			<div class="text-content">
+			<p>
+			  DIY blogs are very interesting and have a huge
+			  audience. It has multiple sub-types like arts
+			  and crafts, construction, wood-work, metal-work
+			  and more. She worked on the DIY upgrades while
+			  staying home during the pandemic, and the redo
+			  took about two weeks to complete. “I had nothing
+			  but spare time and ideas waiting to be
+			  executed,” she says.
+			</p>
+  
+			<p>
+			  To achieve her vision, she painted the walls a
+			  fun, retro-looking green (Behr’s Sweet Grass).
+			  Her backsplash, which looks like pink tile, is
+			  actually a white peel-and-stick option painted
+			  light pink (Behr’s Flamingo Feather.) “Paint
+			  solves everything” is Cyeira’s DIY motto. “If
+			  you don’t like something, paint it!” she says.
+			  She applied that same mentality to her floors,
+			  which she says were an “intense labor of love.”
+			</p>
+			</div>
+
+      </section>
+      <section id="section5" data-nav="Dream">
+        <div class="landing__container">
+          <h2>DREAM Your Process</h2>
+			<div class="text-content">
+			<p>
+            I’ve been looking forward to this episode almost as much as I was looking forward to seeing the actual movie last year. This is it—the big Dune discussion. This is a great story for everybody. It takes itself seriously, but it takes the audience seriously, too. And it was certainly one of the best movies of 2021.I can’t recommend this one enough, but even if you haven’t seen it yet, put on your space helmet, sit tight and listen. We’re about to pick this mythic, epic, excellent film apart to find the nuggets of wisdom most pertinent to the entrepreneurs, self-improvers and all-around goal crushers among us. 
+          </p>
+
+          <p>
+            Our first takeaway comes from the very first scene of the film. It’s a strange sound (listen to the podcast to hear it) accompanied by words that appear on the screen: “Dreams are messages from the deep.” This little quote gets almost no direct explanation in the movie, but we later hear the fabulously named Duncan Idaho (​​Jason Momoa) issue a retort: “Dreams make good stories. But everything important happens when we’re awake.” I love that. The two messages come together perfectly to speak to anyone who has a vision for how their life, their career or the world should be. Your dreams are important messages from your true self, and sometimes they inform you and push you forward in ways your conscious mind alone might never have. But when you’re awake, that’s when you make things happen. Marry the two, and you’ve got messages from the deep informing your conscious processes. That’s a goal-achieving formula if I’ve ever heard one. It’s not hard to see how this plays out in the non-movie world. If you look around at anything—a swingset in a backyard, a skyscraper, a past achievement, your home—you see evidence of someone having gone deep to achieve a vision. But there were physical materials and physical labors involved in getting there.
+          </p>
+			</div>
+        </div>
+      </section>
+    </main>
+
+    <button id="top-btn">
+      <i class="fas fa-angle-double-up"></i>
+    </button>
+    <footer class="page__footer">
+      <p><span class="copy">&copy;</span> <span id="date"></span> <span class="brand">Fayy</span></p>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>
