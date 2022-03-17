@@ -13,6 +13,8 @@
 
 <menu>
   <li>Profermant blogging website</li>
+  <li>Built a multi-section landing page</li>
+  <li>dynamically updating navigational menu based on the amount of content that is added to the page.</li>
 </menu>
 
 <br>
