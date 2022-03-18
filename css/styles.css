@@ -11,12 +11,7 @@
   --small-font: clamp(1rem, 3vw, 1.6rem);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  background: #e91e63;
   background: var(--grad);
   margin: 0;
   font-family: "Merriweather", serif;
@@ -63,7 +58,6 @@ main {
 
 section {
   position: relative;
-  transition: height 0.3s ease;
 }
 
 /* Navigation Styles*/
@@ -141,7 +135,9 @@ section {
   top: 2px;
   position: relative;
 }
-.brand {
+
+.brand a {
+  text-decoration: none;
   color: var(--theme-clr);
 }
 /* ---- Theme Rules ---- */

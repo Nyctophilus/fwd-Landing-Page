@@ -60,18 +60,8 @@ function buildMenu(section) {
   // add the LIs to Virtual Fragment
   fragment.appendChild(itemNav);
 }
-
 // insert the fragment into the navBar --only ONCE!  ==> 1 reflow, 1 repaint
 navBar.appendChild(fragment);
-
-// scrolling Functionality
-function scrollToId(scrollValue) {
-  //   scroll before 100 of the viewport
-  window.scrollTo({
-    behavior: "smooth",
-    top: scrollValue - 70,
-  });
-}
 
 function hideNavBarWhenIdle() {
   const header = document.querySelector(".page__header");
@@ -102,12 +92,10 @@ function showTopButton() {
 }
 
 function setActiveStateNavItems(sectionId) {
-  console.log(sectionId);
   const links = groupSelector("#navbar__list .menu__link");
 
   links.forEach((link) => {
     if (sectionId === link.dataset.name) {
-      console.log(link);
       setActiveStates(links, link);
     }
   });
@@ -121,10 +109,13 @@ function setActiveStateNavItems(sectionId) {
 
 // Click link to Scroll to section
 navBar.addEventListener("click", (e) => {
-  //   if section.id = name of the clicked anchor .. will assign the scrollValue to
-  sections.forEach((s) => {
-    if (s.id === e.target.dataset.name) {
-      scrollToId(s.offsetTop, e.target.dataset.name);
+  sections.forEach((section) => {
+    //   if section.id = name of the clicked anchor .. will assign the scrollValue to
+    if (section.id === e.target.dataset.name) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   });
 
@@ -136,7 +127,7 @@ navBar.addEventListener("click", (e) => {
 document.addEventListener("scroll", () => {
   sections.forEach((section) => {
     //  get top offset of the element
-    let topOffset = section.getBoundingClientRect().top;
+    const topOffset = section.getBoundingClientRect().top;
 
     // check if the section in the viewport!
     if (topOffset < 200 && topOffset > 100) {
@@ -158,7 +149,10 @@ document.addEventListener("scroll", () => {
 // scroll top Button
 idSelector("top-btn").onclick = () => {
   // Scroll to top
-  window.scrollTo(0, 0);
+  window.scrollTo({
+    behavior: "smooth",
+    top: 0,
+  });
 };
 
 // collapsible sections
@@ -181,3 +175,7 @@ document
 
 // date CopyRight
 idSelector("date").textContent = new Date().getFullYear();
+
+/**
+ * End General Functionalities
+ */
